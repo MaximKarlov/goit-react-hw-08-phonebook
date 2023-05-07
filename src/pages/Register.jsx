@@ -1,9 +1,9 @@
 // import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import CSS from '../pages/Home.module.css';
 
 const Register = () => {
-  const location = useLocation();
+  // const location = useLocation();
   return (
     <div>
       <div className={CSS.registration}>

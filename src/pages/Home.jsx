@@ -1,6 +1,5 @@
 // import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import Register from './Register';
 import CSS from '../pages/Home.module.css';
 
 const Home = () => {
