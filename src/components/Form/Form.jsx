@@ -2,8 +2,8 @@
 // import { addContact, getContacts } from '..//../redux/contactSlice';
 import FormCss from '../Form/Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactOperation';
-import { getContacts } from '../../redux/contactSelector';
+import { addContact } from '../../redux/authOperation';
+import { getContacts } from '../../redux/authSelector';
 
 let newUser = [];
 

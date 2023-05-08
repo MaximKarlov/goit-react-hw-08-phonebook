@@ -1,22 +1,58 @@
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // import { useLocation } from 'react-router-dom';
 import CSS from '../pages/Home.module.css';
+import { logInUser } from '../redux/authOperation';
 
-const LogIn = () => {
+const Login = () => {
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'email': {
+        setEmail(value);
+        break;
+      }
+      case 'password': {
+        setPassword(value);
+        break;
+      }
+      default: {
+        return value;
+      }
+    }
+  };
   // const location = useLocation();
+
+  const loggInUser = e => {
+    e.preventDefault();
+    dispatch(logInUser({ email, password }));
+    setEmail('');
+    setPassword('');
+  };
+
   return (
-    <div>
-      <div className={CSS.LogIn}>
+    <form onSubmit={loggInUser}>
+      <div className={CSS.registration}>
         <div className={CSS.items}>
-          <input className={CSS.Email} type="email" />
-          <input className={CSS.Password} type="password" />
-          <button className={CSS.btn} type="submit">
-            Увійти
+          <h2>Вхід</h2>
+          <label>
+            Пошта
+            <input name="email" value={email} className={CSS.Email} type="email" onChange={handleChange} />
+          </label>
+          <label>
+            Пароль
+            <input name="password" value={password} className={CSS.Password} type="password" onChange={handleChange} />
+          </label>
+          <button className={CSS.home_btn} type="submit">
+            Вхід
           </button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
-export default LogIn;
+export default Login;

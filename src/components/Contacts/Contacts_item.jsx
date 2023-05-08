@@ -1,7 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactOperation';
+import { deleteContact } from '../../redux/authOperation';
 import ContactCss from '../Contacts/Contacts.module.css';
 
 export const ContactsItem = ({ id, name, number }) => {

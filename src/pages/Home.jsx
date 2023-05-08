@@ -5,16 +5,16 @@ import CSS from '../pages/Home.module.css';
 const Home = () => {
   const location = useLocation();
   return (
-    <div>
+    <div className={CSS.bodyItem}>
       <span>Творіння Макса Карлова)))</span>
       <p>
         Для роботи з контактами потрібно
         <Link to="/register" state={{ from: location }} className={CSS.linked}>
-          зареєструватися
+          <span> зареєструватися </span>
         </Link>
         або
         <NavLink to="/LogIn" className={CSS.linked}>
-          увійти
+          <span> увійти </span>
         </NavLink>
         в систему
       </p>
