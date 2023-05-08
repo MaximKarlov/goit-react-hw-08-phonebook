@@ -12,14 +12,20 @@ const token = {
   },
 };
 
-export const fetchContacts = createAsyncThunk('contacts/fetchAll', async (_, { rejectWithValue }) => {
-  try {
-    // const { data } = await axios.get(``);
-    // return data;
-  } catch (err) {
-    Notiflix.Notify.failure(err.message);
-    return rejectWithValue(err.message);
+export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+  const persistToken = state.auth.token;
+
+  if (persistToken === null) {
+    console.log('Токена не існує');
+    return thunkAPI.rejectWithValue();
   }
+
+  token.set(persistToken);
+  try {
+    const { data } = await axios.get('/users/current');
+    return data;
+  } catch (err) {}
 });
 
 export const registerUser = createAsyncThunk('auth/registration', async (user, { rejectWithValue }) => {
@@ -36,8 +42,7 @@ export const registerUser = createAsyncThunk('auth/registration', async (user, {
 
 export const logInUser = createAsyncThunk('auth/login', async (user, { rejectWithValue }) => {
   try {
-    const { data, status } = await axios.post('/users/login', user);
-    if (status === 200) Notiflix.Notify.success('Ви залогінились');
+    const { data } = await axios.post('/users/login', user);
     token.set(data.token);
     return data;
   } catch (err) {

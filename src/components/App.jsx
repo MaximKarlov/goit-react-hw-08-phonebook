@@ -1,22 +1,32 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { authSelectors } from '../redux/auth/authSelector';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCurrentUser } from '../redux/auth/authOperation';
 import { Layout } from './Layout';
-// import { NotFound } from '../pages/NotFound';
 
 const Home = lazy(() => import('../pages/Home'));
-// const MovieDetails = lazy(() => import('../pages/MovieDetails'));
-// const Cast = lazy(() => import('../components/Cast'));
-// const Review = lazy(() => import('../components/Review'));
 const Register = lazy(() => import('../pages/Register'));
-const LogIn = lazy(() => import('../pages/Login'));
+const Login = lazy(() => import('../pages/Login'));
+const Contacts = lazy(() => import('../pages/contacts'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const isLogged = useSelector(authSelectors.getLoggedIn);
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
+  // const userLogged = useSelector(authSelectors.getUserName);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/contacts" element={<Contacts />} />
+
         {/* <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
           <Route path="review" element={<Review />} />

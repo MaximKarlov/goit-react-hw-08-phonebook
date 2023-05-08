@@ -13,7 +13,7 @@ const Home = () => {
           <span> зареєструватися </span>
         </Link>
         або
-        <NavLink to="/LogIn" className={CSS.linked}>
+        <NavLink to="/login" className={CSS.linked}>
           <span> увійти </span>
         </NavLink>
         в систему

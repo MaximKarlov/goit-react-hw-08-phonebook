@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { useLocation } from 'react-router-dom';
 import CSS from '../pages/Home.module.css';
-import { registerUser } from '../redux/authOperation';
+import { registerUser } from '../redux/auth/authOperation';
 
 const Register = () => {
   const dispatch = useDispatch();

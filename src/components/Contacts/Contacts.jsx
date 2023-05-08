@@ -2,9 +2,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ContactsItem } from '../Contacts/Contacts_item';
 import { Loader } from '../Loader/Loader';
 import { useEffect } from 'react';
-import { fetchContacts } from '../../redux/authOperation';
+import { fetchContacts } from '../../redux/auth/authOperation';
 import ContactCss from './Contacts.module.css';
-import { getContacts, getFilter, getError, getIsLoading } from '../../redux/authSelector';
+import { getContacts, getFilter, getError, getIsLoading } from '../../redux/contactsSelector';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
