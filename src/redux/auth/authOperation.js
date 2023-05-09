@@ -23,7 +23,8 @@ export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunk
 
   token.set(persistToken);
   try {
-    const { data } = await axios.get('/users/current');
+    const { data, status } = await axios.get('/users/current');
+    if (status === 401) token.unset();
     return data;
   } catch (err) {}
 });

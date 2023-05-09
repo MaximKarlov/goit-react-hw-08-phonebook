@@ -5,6 +5,7 @@ import { deleteContact } from '../../redux/contacts/contactsOperation';
 import ContactCss from '../Contacts/Contacts.module.css';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import Stack from '@mui/material/Stack';
 
 export const ContactsItem = ({ id, name, number }) => {
@@ -16,7 +17,7 @@ export const ContactsItem = ({ id, name, number }) => {
   // };
   return (
     <li id={id} key={nanoid} className={ContactCss.contact_item}>
-      <p>*</p>
+      <p>{<ContactPhoneIcon color="pink" />}</p>
       {name}: <b>{number}</b>
       {/* <button type="text" className={ContactCss.btn} onClick={edit}>
         Edit

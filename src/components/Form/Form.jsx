@@ -2,6 +2,9 @@ import FormCss from '../Form/Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/contactsOperation';
 import { getContacts } from '../../redux/contacts/contactsSelector';
+import AddIcon from '@mui/icons-material/Add';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import Button from '@mui/material/Button';
 
 let newUser = [];
@@ -31,7 +34,9 @@ export const ContactForm = () => {
     <form onSubmit={addingContacts} className={FormCss.form}>
       <div className={FormCss.input__contacts}>
         <label className={FormCss.input__item}>
-          Name
+          <p>
+            <AccountCircleIcon fontSize="small" /> Name
+          </p>
           <input
             type="text"
             name="name"
@@ -42,7 +47,9 @@ export const ContactForm = () => {
         </label>
 
         <label className={FormCss.input__item}>
-          Phone
+          <p>
+            <LocalPhoneIcon fontSize="small" /> Phone
+          </p>
           <input
             type="tel"
             name="number"
@@ -51,7 +58,7 @@ export const ContactForm = () => {
             required
           />
         </label>
-        <Button variant="outlined" type="submit" className={FormCss.input__btn}>
+        <Button variant="outlined" startIcon={<AddIcon />} type="submit" className={FormCss.input__btn}>
           Add contact
         </Button>
       </div>

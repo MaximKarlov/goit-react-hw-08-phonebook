@@ -3,7 +3,10 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOutUser } from '../redux/auth/authOperation';
 import { authSelectors } from '../redux/auth/authSelector';
+import Avatar from '@mui/material/Avatar';
+import Chip from '@mui/material/Chip';
 import defaultAvatar from './default-avatar.png';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
 import CSS from './Layout.module.css';
 
@@ -28,10 +31,16 @@ export const Layout = () => {
         </li>
         {isLoggedIn ? (
           <div className={CSS.userInfo}>
-            <span className={CSS.tmp}>
+            {/* <span className={CSS.tmp}>
               Вітаємо вас, {userLogged} <img src={avatar} alt="ava" width="32" className={CSS.avatar} />
-            </span>
-            <Button variant="outlined" className={CSS.btn} onClick={() => dispatch(logOutUser())}>
+            </span> */}
+            <Chip avatar={<Avatar alt={userLogged} src={avatar} />} label={userLogged} variant="outlined" />
+            <Button
+              variant="outlined"
+              startIcon={<LogoutIcon />}
+              className={CSS.btn}
+              onClick={() => dispatch(logOutUser())}
+            >
               Вихід
             </Button>
           </div>

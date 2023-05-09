@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Button from '@mui/material/Button';
+import LoginIcon from '@mui/icons-material/Login';
 import CSS from '../pages/Home.module.css';
 import { logInUser } from '../redux/auth/authOperation';
 
@@ -46,7 +47,7 @@ const Login = () => {
             Пароль
             <input name="password" value={password} className={CSS.Password} type="password" onChange={handleChange} />
           </label>
-          <Button variant="outlined" className={CSS.home_btn} type="submit">
+          <Button variant="outlined" startIcon={<LoginIcon />} className={CSS.home_btn} type="submit">
             Вхід
           </Button>
         </div>
