@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import CSS from '../pages/Home.module.css';
 import { registerUser } from '../redux/auth/authOperation';
 
@@ -29,7 +28,6 @@ const Register = () => {
       }
     }
   };
-  // const location = useLocation();
 
   const regUser = e => {
     e.preventDefault();
