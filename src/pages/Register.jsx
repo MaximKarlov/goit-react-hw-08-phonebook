@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import CSS from '../pages/Home.module.css';
+import Button from '@mui/material/Button';
 import { registerUser } from '../redux/auth/authOperation';
 
 const Register = () => {
@@ -54,9 +55,9 @@ const Register = () => {
             Пароль
             <input name="password" value={password} className={CSS.Password} type="password" onChange={handleChange} />
           </label>
-          <button className={CSS.home_btn} type="submit">
+          <Button variant="outlined" className={CSS.home_btn} type="submit">
             Реєстрація
-          </button>
+          </Button>
         </div>
       </div>
     </form>

@@ -3,6 +3,9 @@ import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/contactsOperation';
 import ContactCss from '../Contacts/Contacts.module.css';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Stack from '@mui/material/Stack';
 
 export const ContactsItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -18,9 +21,17 @@ export const ContactsItem = ({ id, name, number }) => {
       {/* <button type="text" className={ContactCss.btn} onClick={edit}>
         Edit
       </button> */}
-      <button type="text" className={ContactCss.btn} onClick={() => dispatch(deleteContact(id))}>
-        Delete
-      </button>
+      <Stack direction="row" spacing={2}>
+        <Button
+          variant="outlined"
+          startIcon={<DeleteIcon />}
+          type="text"
+          className={ContactCss.btn}
+          onClick={() => dispatch(deleteContact(id))}
+        >
+          Delete
+        </Button>
+      </Stack>
     </li>
   );
 };

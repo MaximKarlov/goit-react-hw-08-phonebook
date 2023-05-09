@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logOutUser } from '../redux/auth/authOperation';
 import { authSelectors } from '../redux/auth/authSelector';
 import defaultAvatar from './default-avatar.png';
+import Button from '@mui/material/Button';
 import CSS from './Layout.module.css';
 
 export const Layout = () => {
@@ -30,9 +31,9 @@ export const Layout = () => {
             <span className={CSS.tmp}>
               Вітаємо вас, {userLogged} <img src={avatar} alt="ava" width="32" className={CSS.avatar} />
             </span>
-            <button className={CSS.btn} onClick={() => dispatch(logOutUser())}>
+            <Button variant="outlined" className={CSS.btn} onClick={() => dispatch(logOutUser())}>
               Вихід
-            </button>
+            </Button>
           </div>
         ) : (
           <ul className={CSS.regLogItems}>

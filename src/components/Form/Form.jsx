@@ -1,9 +1,8 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { addContact, getContacts } from '..//../redux/contactSlice';
 import FormCss from '../Form/Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/contactsOperation';
 import { getContacts } from '../../redux/contacts/contactsSelector';
+import Button from '@mui/material/Button';
 
 let newUser = [];
 
@@ -52,9 +51,9 @@ export const ContactForm = () => {
             required
           />
         </label>
-        <button type="submit" className={FormCss.input__btn}>
+        <Button variant="outlined" type="submit" className={FormCss.input__btn}>
           Add contact
-        </button>
+        </Button>
       </div>
     </form>
   );
