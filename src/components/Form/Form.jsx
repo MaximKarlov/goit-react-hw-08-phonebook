@@ -2,30 +2,30 @@
 // import { addContact, getContacts } from '..//../redux/contactSlice';
 import FormCss from '../Form/Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../../redux/auth/authOperation';
-import { getContacts } from '../../redux/contactsSelector';
+import { addContact } from '../../redux/contacts/contactsOperation';
+import { getContacts } from '../../redux/contacts/contactsSelector';
 
 let newUser = [];
 
 export const ContactForm = () => {
-  // const { items } = useSelector(getContacts);
+  const { items } = useSelector(getContacts);
   const dispatch = useDispatch();
 
   const addingContacts = e => {
     e.preventDefault();
     let name = e.target.name.value;
-    let phone = e.target.number.value;
-    // if (items.find(contact => contact.name === name)) {
-    //   alert(`${name} is already existing`);
-    //   e.target.name.value = '';
-    // } else {
-    //   newUser = {
-    //     name,
-    //     phone,
-    //   };
-    //   dispatch(addContact(newUser));
-    //   e.target.name.value = e.target.number.value = '';
-    // }
+    let number = e.target.number.value;
+    if (items.find(contact => contact.name === name)) {
+      alert(`${name} is already existing`);
+      e.target.name.value = '';
+    } else {
+      newUser = {
+        name,
+        number,
+      };
+      dispatch(addContact(newUser));
+      e.target.name.value = e.target.number.value = '';
+    }
   };
 
   return (
