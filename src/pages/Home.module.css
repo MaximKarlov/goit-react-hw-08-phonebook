@@ -1,6 +1,6 @@
 .bodyItem {
   margin: 100px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -8,13 +8,33 @@
 .items {
   margin: 50px auto;
   outline: 2px solid rgb(11, 11, 11);
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 350px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: row; */
   align-items: center;
   gap: 5px;
-  justify-content: center;
+  justify-content: space-around;
+  /* align-content: center; */
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+.items_input {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-around;
+}
+.item_input {
+  width: 100%;
+}
+
+.items svg {
+  justify-content: flex-end;
 }
 label {
   text-align: center;
@@ -25,8 +45,8 @@ label input {
   padding: 5px;
 }
 .home_btn {
-  margin-top: 5px;
   padding: 10px;
+  margin-bottom: 10px;
 }
 /* .linked .active {
   color: red;
