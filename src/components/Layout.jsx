@@ -21,7 +21,7 @@ export const Layout = () => {
           </NavLink>
         </li>
         <li className={CSS.layout_item}>
-          <NavLink to="/" className={CSS.linked}>
+          <NavLink to="/contacts" className={CSS.linked}>
             PHONEBOOK
           </NavLink>
         </li>
