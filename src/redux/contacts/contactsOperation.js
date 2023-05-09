@@ -41,7 +41,7 @@ export const addContact = createAsyncThunk('contacts/addContact', async (contact
   }
 });
 
-export const updateContact = createAsyncThunk('contacts/deleteContact', async (id, { rejectWithValue }, thunkAPI) => {
+export const updateContact = createAsyncThunk('contacts/updateContact', async (id, { rejectWithValue }, thunkAPI) => {
   const state = thunkAPI.getState();
   const persistToken = state.auth.token;
   token.set(persistToken);
@@ -56,7 +56,7 @@ export const updateContact = createAsyncThunk('contacts/deleteContact', async (i
   }
 });
 
-export const deleteContact = createAsyncThunk('contacts/updateContact', async (id, { rejectWithValue }) => {
+export const deleteContact = createAsyncThunk('contacts/deleteContact', async (id, { rejectWithValue }) => {
   try {
     const { data, status } = await axios.delete(`/contacts/${id}`);
     if (status === 200) Notiflix.Notify.success(`Контакт видалено з бази! \n  The contact was successfully deleted.`);
