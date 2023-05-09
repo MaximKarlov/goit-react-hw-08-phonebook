@@ -1,6 +1,6 @@
 .bodyItem {
   margin: 100px;
-  /* display: flex; */
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -11,11 +11,9 @@
   width: 400px;
   height: 350px;
   display: flex;
-  /* flex-direction: row; */
   align-items: center;
   gap: 5px;
   justify-content: space-around;
-  /* align-content: center; */
   flex-wrap: wrap;
   align-content: stretch;
 }
@@ -60,13 +58,6 @@ label input {
   cursor: pointer;
   color: rgb(255, 0, 0);
 }
-
-/* .linked:visited {
-    color: black;
-} */
-/* .linked:focus {
-    color: tomato;
-} */
 
 .layout_items {
   display: flex;
