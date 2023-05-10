@@ -27,7 +27,7 @@ export const ContactForm = () => {
         number,
       };
       dispatch(addContact(newUser));
-      // e.target.name = e.target.number = '';
+      e.target.name.value = e.target.phone.value = '';
     }
   };
 
