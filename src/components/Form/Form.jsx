@@ -17,7 +17,7 @@ export const ContactForm = () => {
   const addingContacts = e => {
     e.preventDefault();
     let name = e.target.name.value;
-    let number = e.target.number.value;
+    let number = e.target.phone.value;
     if (items.find(contact => contact.name === name)) {
       alert(`${name} is already existing`);
       e.target.name.value = '';
@@ -27,7 +27,7 @@ export const ContactForm = () => {
         number,
       };
       dispatch(addContact(newUser));
-      e.target.name.value = e.target.number.value = '';
+      // e.target.name = e.target.number = '';
     }
   };
 

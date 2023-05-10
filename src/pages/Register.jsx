@@ -19,8 +19,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  console.log('Login', email);
-  console.log('pass', password);
+
   const handleClickShowPassword = () => setShowPassword(show => !show);
 
   const handleMouseDownPassword = event => {

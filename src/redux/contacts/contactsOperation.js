@@ -45,7 +45,7 @@ export const updateContact = createAsyncThunk('contacts/updateContact', async (i
   const state = thunkAPI.getState();
   const persistToken = state.auth.token;
   token.set(persistToken);
-  console.log(persistToken);
+
   try {
     const { data, status } = await axios.patch(`/contacts/${id}`);
     if (status === 200) Notiflix.Notify.success('Контакт редаговано у базі. \n The contact was successfully updated.');
