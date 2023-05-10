@@ -5,6 +5,7 @@ import { getContacts } from '../../redux/contacts/contactsSelector';
 import AddIcon from '@mui/icons-material/Add';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 let newUser = [];
@@ -33,31 +34,14 @@ export const ContactForm = () => {
   return (
     <form onSubmit={addingContacts} className={FormCss.form}>
       <div className={FormCss.input__contacts}>
-        <label className={FormCss.input__item}>
-          <p>
-            <AccountCircleIcon fontSize="small" /> Name
-          </p>
-          <input
-            type="text"
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-          />
-        </label>
-
-        <label className={FormCss.input__item}>
-          <p>
-            <LocalPhoneIcon fontSize="small" /> Phone
-          </p>
-          <input
-            type="tel"
-            name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-          />
-        </label>
+        <p>
+          <AccountCircleIcon fontSize="small" /> Name
+        </p>
+        <TextField id="helper-name" label="Name" name="name" className={FormCss.item_input} />
+        <p>
+          <LocalPhoneIcon fontSize="small" /> Phone
+        </p>
+        <TextField id="helper-phone" label="Phone" name="phone" className={FormCss.item_input} />
         <Button variant="outlined" startIcon={<AddIcon />} type="submit" className={FormCss.input__btn}>
           Add contact
         </Button>

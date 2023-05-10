@@ -1,6 +1,6 @@
 .filter {
 }
-.label {
+.filter_label {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

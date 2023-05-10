@@ -34,11 +34,11 @@
 .items svg {
   justify-content: flex-end;
 }
-label {
+.home_label {
   text-align: center;
   width: 100%;
 }
-label input {
+.home_label input {
   width: 90%;
   padding: 5px;
 }
